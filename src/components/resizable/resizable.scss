@@ -1,0 +1,28 @@
+/**
+ * resizable 组件样式自动导入
+ * 先导入必要的变量，然后导入 foundation 的样式
+ */
+
+// 导入主题变量（获取 $prefix）
+@import '@douyinfe/semi-theme-default/scss/variables.scss';
+
+// 导入 mixin（foundation 样式可能需要使用）
+@import '@douyinfe/semi-theme-default/scss/mixin.scss';
+// 导入字体 mixin（foundation 样式需要使用）
+@import '@douyinfe/semi-theme-default/scss/_font.scss';
+// 导入 foundation 的 resizable 样式
+@import '@douyinfe/semi-foundation/resizable/resizable.scss';
+
+// 为 ResizeItem 添加平滑过渡效果
+// 在非拖拽状态下应用过渡，拖拽时通过类禁用
+$module: #{$prefix}-resizable;
+
+.#{$module}-item {
+    // 默认添加过渡效果
+    transition: width 0.2s ease, height 0.2s ease, flex-basis 0.2s ease;
+
+    // 拖拽时禁用过渡
+    &-resizing {
+        transition: none !important;
+    }
+}

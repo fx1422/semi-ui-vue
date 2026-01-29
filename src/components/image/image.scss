@@ -1,0 +1,67 @@
+/**
+ * Vue Image 组件的样式覆盖
+ * 这些样式是针对 Vue 组件的特定需求，不应该修改 foundation 包中的公共样式
+ *
+ * 注意：foundation 的 image.scss 已经在全局样式文件 (src/styles/index.scss) 中引入，
+ * 这里只需要定义 Vue 特定的样式覆盖即可
+ *
+ * 需要导入变量文件以使用颜色、间距等变量
+ */
+
+// 导入变量文件（只导入变量，不导入样式规则，避免重复）
+@import '@douyinfe/semi-foundation/image/variables.scss';
+
+// 导入 mixin（foundation 样式可能需要使用）
+@import '@douyinfe/semi-theme-default/scss/mixin.scss';
+// 导入主题变量和 mixin（获取 $prefix 和 font-size-regular mixin）
+@import '@douyinfe/semi-theme-default/scss/variables.scss';
+@import '@douyinfe/semi-theme-default/scss/_font.scss';
+
+$module: #{$prefix}-image;
+
+// 添加 mask 样式（Vue 组件需要）
+.#{$module} {
+    &-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-image_mask-bg;
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: inherit;
+        pointer-events: none;
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: $color-image_mask_info_text;
+
+            &-text {
+                margin-top: $spacing-image_mask_info_text-marginTop;
+                @include font-size-regular;
+            }
+        }
+    }
+
+    &:hover &-mask {
+        opacity: 1;
+    }
+}
+
+// 修复 footer-content 的 flex 布局（Vue 组件需要）
+.#{$module}-preview {
+    &-footer {
+        &-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

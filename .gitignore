@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.cursor
+.idea
+.trae
+.
+
+# Build outputs
+dist/
+lib/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+.temp/
+.cache/
+
+# Test files
+test-import.js

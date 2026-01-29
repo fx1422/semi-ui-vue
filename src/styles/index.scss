@@ -1,0 +1,292 @@
+// Semi UI Vue 全局样式入口
+// ⚠️ 注意：此文件现在仅用于保留全局样式和主题变量，组件样式已通过组件的 index.ts 自动导入
+// 用户应该使用按需导入方式：import { Button } from '@douyinfe/semi-ui-vue'
+// 组件样式会自动导入，不需要手动导入 CSS 文件
+
+// 1. 导入主题基础文件（mixin、variables、font）
+@import 'semi-theme-default/scss/index.scss';
+
+// 2. 导入主题全局样式（包含 CSS 变量定义）
+@import 'semi-theme-default/scss/global.scss';
+
+// 3. 导入基础组件样式
+// Portal 组件（Tooltip、Popover 等依赖）
+@import 'semi-foundation/_portal/portal.scss';
+
+// 4. 组件样式导入
+// 全量导入所有组件样式，用于支持全局导入场景
+
+// Button 组件
+@import 'semi-foundation/button/button.scss';
+@import 'semi-foundation/button/iconButton.scss';
+
+// Typography 组件
+@import 'semi-foundation/typography/typography.scss';
+
+// Space 组件
+@import 'semi-foundation/space/space.scss';
+
+// Divider 组件
+@import 'semi-foundation/divider/divider.scss';
+
+// Avatar 组件
+@import 'semi-foundation/avatar/avatar.scss';
+
+// BackTop 组件
+@import 'semi-foundation/backtop/backtop.scss';
+
+// Grid 组件
+@import 'semi-foundation/grid/grid.scss';
+
+// Highlight 组件
+@import 'semi-foundation/highlight/highlight.scss';
+
+// Image 组件
+@import 'semi-foundation/image/image.scss';
+
+// Card 组件
+@import 'semi-foundation/card/card.scss';
+
+// Badge 组件
+@import 'semi-foundation/badge/badge.scss';
+
+// Layout 组件
+@import 'semi-foundation/layout/layout.scss';
+
+// Tag 组件
+@import 'semi-foundation/tag/tag.scss';
+
+// TagInput 组件
+@import 'semi-foundation/tagInput/tagInput.scss';
+
+// Empty 组件
+@import 'semi-foundation/empty/empty.scss';
+
+// Spin 组件
+@import 'semi-foundation/spin/spin.scss';
+
+// Input 组件
+@import 'semi-foundation/input/input.scss';
+@import 'semi-foundation/input/textarea.scss';
+
+// Progress 组件
+@import 'semi-foundation/progress/progress.scss';
+
+// Checkbox 组件
+@import 'semi-foundation/checkbox/checkbox.scss';
+
+// Radio 组件
+@import 'semi-foundation/radio/radio.scss';
+
+// Descriptions 组件
+@import 'semi-foundation/descriptions/descriptions.scss';
+
+// Collapse 组件
+@import 'semi-foundation/collapse/collapse.scss';
+
+// Collapsible 组件
+@import 'semi-foundation/collapsible/collapsible.scss';
+
+// List 组件
+@import 'semi-foundation/list/list.scss';
+
+// Table 组件
+@import 'semi-foundation/table/table.scss';
+
+// Calendar 组件
+@import 'semi-foundation/calendar/calendar.scss';
+
+// ColorPicker 组件
+@import 'semi-foundation/colorPicker/colorPicker.scss';
+
+// PinCode 组件
+@import 'semi-foundation/pincode/pincode.scss';
+
+// Switch 组件
+@import 'semi-foundation/switch/switch.scss';
+
+// Tooltip 动画样式
+@import 'semi-foundation/tooltip/animation.scss';
+
+// Tooltip 组件
+@import 'semi-foundation/tooltip/tooltip.scss';
+
+// Popover 组件
+@import 'semi-foundation/popover/popover.scss';
+
+// Dropdown 组件
+@import 'semi-foundation/dropdown/dropdown.scss';
+
+// Popconfirm 组件
+@import 'semi-foundation/popconfirm/popconfirm.scss';
+
+// Toast 动画样式
+@import 'semi-foundation/toast/animation.scss';
+
+// Toast 组件
+@import 'semi-foundation/toast/toast.scss';
+
+// Notification 组件
+@import 'semi-foundation/notification/notification.scss';
+
+// Banner 组件
+@import 'semi-foundation/banner/banner.scss';
+
+// SideSheet 组件
+@import 'semi-foundation/sideSheet/sideSheet.scss';
+@import 'semi-foundation/sideSheet/animation.scss';
+
+// Skeleton 组件
+@import 'semi-foundation/skeleton/skeleton.scss';
+
+// Rating 组件
+@import 'semi-foundation/rating/rating.scss';
+
+// InputNumber 组件
+@import 'semi-foundation/inputNumber/inputNumber.scss';
+
+// Slider 组件
+@import 'semi-foundation/slider/slider.scss';
+
+// Breadcrumb 组件
+@import 'semi-foundation/breadcrumb/breadcrumb.scss';
+
+// Steps 组件
+@import 'semi-foundation/steps/steps.scss';
+
+// Tabs 动画样式
+@import 'semi-foundation/tabs/animation.scss';
+
+// Tabs 组件
+@import 'semi-foundation/tabs/tabs.scss';
+
+// OverflowList 组件
+@import 'semi-foundation/overflowList/overflowList.scss';
+
+// Select 组件
+@import 'semi-foundation/select/select.scss';
+
+// Cascader 组件
+@import 'semi-foundation/cascader/cascader.scss';
+
+// AutoComplete 组件
+@import 'semi-foundation/autoComplete/autoComplete.scss';
+
+// Pagination 组件
+@import 'semi-foundation/pagination/pagination.scss';
+
+// Anchor 组件
+@import 'semi-foundation/anchor/anchor.scss';
+
+// Navigation 组件
+@import 'semi-foundation/navigation/navigation.scss';
+
+// Timeline 组件
+@import 'semi-foundation/timeline/timeline.scss';
+
+// Tree 组件
+@import 'semi-foundation/tree/tree.scss';
+
+// TreeSelect 组件
+@import 'semi-foundation/treeSelect/treeSelect.scss';
+
+// Transfer 组件
+@import 'semi-foundation/transfer/transfer.scss';
+
+// Modal 组件
+@import 'semi-foundation/modal/modal.scss';
+
+// Carousel 组件
+@import 'semi-foundation/carousel/carousel.scss';
+
+// ScrollList 组件
+@import 'semi-foundation/scrollList/scrollList.scss';
+
+// TimePicker 组件
+@import 'semi-foundation/timePicker/timePicker.scss';
+
+// DatePicker 组件
+@import 'semi-foundation/datePicker/datePicker.scss';
+
+// Upload 组件
+@import 'semi-foundation/upload/upload.scss';
+
+// Form 组件
+@import 'semi-foundation/form/form.scss';
+
+// Toast 底部位置动画修复（Vue 版本特定）
+// 底部位置的 toast 应该向下移动，而不是向上移动
+.semi-toast-wrapper[data-toast-position='bottom'] .semi-toast-animation-show,
+.semi-toast-wrapper.semi-toast-wrapper-bottom .semi-toast-animation-show,
+.semi-toast-wrapper[data-toast-position='bottom'] .semi-toast.semi-toast-animation-show,
+.semi-toast-wrapper.semi-toast-wrapper-bottom .semi-toast.semi-toast-animation-show {
+    animation: 300ms semi-toast-keyframe-toast-show-bottom cubic-bezier(0.22, 0.57, 0.02, 1.2) 0s forwards !important;
+}
+
+.semi-toast-wrapper[data-toast-position='bottom'] .semi-toast-animation-hide,
+.semi-toast-wrapper.semi-toast-wrapper-bottom .semi-toast-animation-hide,
+.semi-toast-wrapper[data-toast-position='bottom'] .semi-toast.semi-toast-animation-hide,
+.semi-toast-wrapper.semi-toast-wrapper-bottom .semi-toast.semi-toast-animation-hide {
+    animation: 300ms semi-toast-keyframe-toast-hide-bottom cubic-bezier(0.22, 0.57, 0.02, 1.2) 0s forwards !important;
+}
+
+@keyframes semi-toast-keyframe-toast-show-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes semi-toast-keyframe-toast-hide-bottom {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+// AutoComplete 组件样式覆盖（Vue 版本特定修复）
+.semi-autocomplete-loading-wrapper {
+    box-sizing: content-box;
+}
+
+// Vue 版本特定样式覆盖
+
+// Dropdown 滚动条主题颜色适配（所有带滚动的 Dropdown 菜单）
+.semi-dropdown-menu {
+    &::-webkit-scrollbar-track {
+        background: var(--semi-color-fill-0) !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--semi-color-fill-2) !important;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--semi-color-fill-3) !important;
+    }
+}
+
+// Select、Cascader、TreeSelect 等组件的选项列表滚动条主题颜色适配
+.semi-select-option-list,
+.semi-cascader-option-lists,
+.semi-treeSelect-dropdown {
+    &::-webkit-scrollbar-track {
+        background: var(--semi-color-fill-0) !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--semi-color-fill-2) !important;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--semi-color-fill-3) !important;
+    }
+}

@@ -1,0 +1,185 @@
+{
+    "name": "@transsionfe/semi-ui-vue",
+    "version": "0.0.8",
+    "description": "Vue 3 implementation of Semi Design",
+    "main": "lib/cjs/index.cjs",
+    "module": "lib/es/index.js",
+    "types": "lib/es/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./lib/es/index.d.ts",
+            "import": "./lib/es/index.js",
+            "require": "./lib/cjs/index.cjs"
+        },
+        "./css": {
+            "import": "./lib/css/semi.css",
+            "require": "./lib/css/semi.css"
+        },
+        "./components/*": {
+            "types": "./lib/es/components/*/index.d.ts",
+            "import": "./lib/es/components/*/index.js",
+            "require": "./lib/cjs/components/*/index.cjs"
+        },
+        "./components/icons": {
+            "types": "./lib/es/components/icons/index.d.ts",
+            "import": "./lib/es/components/icons/index.js",
+            "require": "./lib/cjs/components/icons/index.cjs"
+        },
+        "./components/icons/*": {
+            "types": "./lib/es/components/icons/*.d.ts",
+            "import": "./lib/es/components/icons/*.js",
+            "require": "./lib/cjs/components/icons/*.cjs"
+        },
+        "./locale/*": {
+            "types": "./lib/es/components/locale/*.d.ts",
+            "import": "./lib/es/components/locale/*.js",
+            "require": "./lib/cjs/components/locale/*.cjs"
+        },
+        "./resolvers": {
+            "types": "./lib/es/resolvers/index.d.ts",
+            "import": "./lib/es/resolvers/index.js",
+            "require": "./lib/cjs/resolvers/index.cjs"
+        },
+        "./package.json": "./package.json"
+    },
+    "scripts": {
+        "dev": "vite --config vite.config.dev.ts",
+        "build": "npm run clean && npm run build:lib && npm run build:component-styles && npm run generate:proxies && npm run build:global-style && npm run build:types && npm run cleanup && npm run cleanup-build",
+        "generate:proxies": "node scripts/generate-component-proxies.mjs",
+        "build:lib": "vite build",
+        "build:types": "node scripts/generate-types.mjs",
+        "cleanup": "node scripts/cleanup-vue2-files.mjs",
+        "cleanup-build": "node scripts/cleanup-build.mjs",
+        "build:dist": "echo \"no dist config\" && exit 0",
+        "build:component-styles": "node scripts/compile-component-styles.mjs",
+        "build:global-style": "node scripts/filter-sass-output.mjs src/styles/index.scss lib/css/semi.css --load-path=node_modules --load-path=node_modules/@douyinfe --load-path=node_modules/@douyinfe/semi-theme-default/scss --load-path=node_modules/@douyinfe/semi-foundation --load-path=.. --load-path=../semi-theme-default --load-path=../semi-foundation --no-source-map --quiet-deps",
+        "build:style": "npm run build:component-styles && npm run build:global-style",
+        "prepublishOnly": "npm run build",
+        "size-check": "size-limit",
+        "audit": "npm audit --production",
+        "audit:fix": "npm audit fix --production",
+        "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+        "version:patch": "npm version patch -m 'chore(release): %s'",
+        "version:minor": "npm version minor -m 'chore(release): %s'",
+        "version:major": "npm version major -m 'chore(release): %s'",
+        "build:icons": "node scripts/build-icons.mjs",
+        "clean": "rimraf lib",
+        "test": "vitest",
+        "test:coverage": "vitest --coverage",
+        "sync-check": "node scripts/syncCheck.js",
+        "lint": "eslint src --ext .ts,.vue || true",
+        "lint:fix": "eslint src --ext .ts,.vue --fix",
+        "format": "prettier --write \"src/**/*.{ts,vue}\" && eslint src --ext .ts,.vue --fix",
+        "generate:docs": "node vite-press/scripts/generate-docs.js",
+        "publish": "npm publish --access public",
+        "version:update": "npm version patch && npm publish --access public"
+    },
+    "files": [
+        "lib/es/**/*.js",
+        "lib/es/**/*.d.ts",
+        "lib/es/**/*.css",
+        "lib/css/**",
+        "lib/cjs/**/*.cjs",
+        "lib/cjs/**/*.d.ts",
+        "lib/cjs/**/*.css",
+        "!lib/es/semi-foundation",
+        "!lib/cjs/semi-foundation",
+        "!lib/es/semi-ui-vue",
+        "!lib/cjs/semi-ui-vue",
+        "!lib/es/example",
+        "!lib/cjs/example",
+        "!lib/**/*.map",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md"
+    ],
+    "keywords": [
+        "semi design",
+        "vue3",
+        "ui library",
+        "component library",
+        "design system"
+    ],
+    "dependencies": {
+        "classnames": "^2.3.1",
+        "fast-copy": "^3.0.1",
+        "lodash-es": "^4.17.21",
+        "sortablejs": "^1.15.0"
+    },
+    "peerDependencies": {
+        "vue": "^3.3.0 || ^3.4.0 || ^3.5.0",
+        "@douyinfe/semi-animation": "^2.90.13",
+        "@douyinfe/semi-foundation": "^2.90.13",
+        "@douyinfe/semi-theme-default": "^2.90.13",
+        "date-fns": "^3.0.0"
+    },
+    "peerDependenciesMeta": {
+        "date-fns": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@size-limit/preset-big-lib": "^11.0.0",
+        "@types/lodash": "^4.17.20",
+        "@types/node": "^20.0.0",
+        "@types/prismjs": "^1.26.5",
+        "@typescript-eslint/eslint-plugin": "^8.53.1",
+        "@typescript-eslint/parser": "^8.53.1",
+        "@vitejs/plugin-vue": "^5.0.0",
+        "@vitest/coverage-v8": "^4.0.7",
+        "@vue/compiler-dom": "^3.5.25",
+        "@vue/eslint-config-prettier": "^8.0.0",
+        "@vue/eslint-config-typescript": "^12.0.0",
+        "@vue/test-utils": "^2.4.0",
+        "conventional-changelog-cli": "^4.1.0",
+        "eslint": "^8.0.0",
+        "eslint-plugin-prettier": "^5.5.4",
+        "eslint-plugin-vue": "^9.0.0",
+        "jsdom": "^23.0.0",
+        "marked": "^12.0.0",
+        "prettier": "^3.0.0",
+        "prismjs": "^1.30.0",
+        "rimraf": "^5.0.0",
+        "sass": "^1.69.0",
+        "semi-theme-vite-plugin": "^1.0.0",
+        "size-limit": "^11.0.0",
+        "typescript": "^5.0.0",
+        "unplugin-vue-components": "^30.0.0",
+        "vite": "^5.0.0",
+        "vitest": "^1.0.0",
+        "vue": "^3.5.25",
+        "vue-live": "^2.5.4",
+        "vue-router": "^4.5.1",
+        "vue-tsc": "^3.1.1"
+    },
+    "sideEffects": [
+        "*.css",
+        "*.scss",
+        "lib/css/**",
+        "lib/**/style.js",
+        "src/components/**/style.ts"
+    ],
+    "homepage": "http://8.141.122.26",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fx1422/semi-ui-vue.git",
+        "directory": "semi-ui-vue"
+    },
+    "bugs": {
+        "url": "https://github.com/fx1422/semi-ui-vue/issues"
+    },
+    "license": "MIT",
+    "author": {
+      "name": "transsionfe",
+      "email": "1422788179@qq.com",
+      "url": "https://github.com/fx1422/semi-ui-vue"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    }
+}

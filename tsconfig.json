@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "moduleResolution": "bundler",
+        "jsx": "preserve",
+        "strict": true,
+        "strictNullChecks": false,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "@douyinfe/semi-foundation/*": ["../semi-foundation/*"],
+            "@douyinfe/semi-theme-default/*": ["../semi-theme-default/*"],
+            "@components/*": ["example/components/*"],
+            "@content/*": ["../content/*"],
+            "@transsionfe/semi-ui-vue/*": ["src/*"],
+            "@transsionfe/semi-ui-vue": ["src/index.ts"]
+        },
+        "types": ["vite/client", "vitest/globals", "node"]
+    },
+    "include": ["src/**/*.ts", "src/**/*.vue"],
+    "exclude": [
+        "node_modules",
+        "__test__",
+        "dist",
+        "example",
+        "../semi-foundation/**/*.ts",
+        "node_modules/@douyinfe/semi-foundation/**",
+        "node_modules/.pnpm/**"
+    ]
+}

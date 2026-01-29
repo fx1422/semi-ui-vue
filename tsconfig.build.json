@@ -1,0 +1,20 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "declaration": true,
+        "declarationMap": false,
+        "emitDeclarationOnly": true,
+        "noEmitOnError": false,
+        "outDir": "./lib/types"
+        // 不设置 rootDir，让 TypeScript 自动推断
+        // 这样可以包含 semi-foundation 等外部依赖的类型
+    },
+    "include": ["src/**/*.ts", "src/**/*.vue"],
+    "exclude": [
+        "node_modules",
+        "__test__",
+        "dist",
+        "example",
+        "lib"
+    ]
+}

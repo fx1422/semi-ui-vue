@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+lib/
+dist/
+
+# Generated files
+*.d.ts
+*.map
+
+# Markdown files (to preserve table formatting)
+**/*.md
+
+# Other
+coverage/
+*.log

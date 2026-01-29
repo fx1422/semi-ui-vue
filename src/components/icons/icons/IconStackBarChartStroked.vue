@@ -1,0 +1,27 @@
+<template>
+    <Icon :type="type" v-bind="$attrs">
+        <svg
+            :viewBox="viewBox"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            focusable="false"
+            aria-hidden="true"
+            v-html="svgContent"
+        />
+    </Icon>
+</template>
+
+<script setup lang="ts">
+import Icon from '../Icon.vue';
+
+defineOptions({
+    name: 'IconStackBarChartStroked',
+});
+
+const type = 'stack-bar-chart-stroked';
+const viewBox = '0 0 24 24';
+const svgContent =
+    '<path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C9.44772 2 9 2.44772 9 3V10V21C9 21.5523 9.44772 22 10 22H14C14.5523 22 15 21.5523 15 21V10V3C15 2.44772 14.5523 2 14 2H10ZM13 11H11V20H13V11ZM13 9V4H11V9H13ZM3 7C2.44772 7 2 7.44772 2 8V13V21C2 21.5523 2.44772 22 3 22H7C7.55228 22 8 21.5523 8 21V13V8C8 7.44772 7.55228 7 7 7H3ZM6 14H4V20H6V14ZM6 12V9H4V12H6ZM16 11C16 10.4477 16.4477 10 17 10H21C21.5523 10 22 10.4477 22 11V17V21C22 21.5523 21.5523 22 21 22H17C16.4477 22 16 21.5523 16 21V17V11ZM18 16H20V12H18V16ZM18 18V20H20V18H18Z" fill="currentColor"/>';
+</script>

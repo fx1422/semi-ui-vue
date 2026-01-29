@@ -1,0 +1,14 @@
+/**
+ * pagination 组件样式自动导入
+ * 先导入必要的变量，然后导入 foundation 的样式
+ */
+
+// 导入主题变量（获取 $prefix）
+@import '@douyinfe/semi-theme-default/scss/variables.scss';
+
+// 导入 mixin（foundation 样式可能需要使用）
+@import '@douyinfe/semi-theme-default/scss/mixin.scss';
+// 导入字体 mixin（foundation 样式需要使用）
+@import '@douyinfe/semi-theme-default/scss/_font.scss';
+// 导入 foundation 的 pagination 样式
+@import '@douyinfe/semi-foundation/pagination/pagination.scss';

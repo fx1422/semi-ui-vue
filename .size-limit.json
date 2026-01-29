@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Full bundle (ESM)",
+        "path": "lib/es/index.js",
+        "limit": "500 KB",
+        "import": "*"
+    },
+    {
+        "name": "Full bundle (CJS)",
+        "path": "lib/cjs/index.cjs",
+        "limit": "500 KB",
+        "import": "*"
+    },
+    {
+        "name": "Button component only",
+        "path": "lib/es/components/button/index.js",
+        "limit": "50 KB",
+        "import": "{ Button }"
+    },
+    {
+        "name": "CSS bundle",
+        "path": "lib/css/semi.css",
+        "limit": "100 KB"
+    }
+]

@@ -1,0 +1,118 @@
+/**
+ * input 组件样式自动导入
+ * 先导入必要的变量，然后导入 foundation 的样式
+ */
+
+// 导入主题变量（获取 $prefix）
+@import '@douyinfe/semi-theme-default/scss/variables.scss';
+
+// 导入 mixin（foundation 样式可能需要使用）
+@import '@douyinfe/semi-theme-default/scss/mixin.scss';
+// 导入字体 mixin（foundation 样式需要使用）
+@import '@douyinfe/semi-theme-default/scss/_font.scss';
+// 导入 foundation 的 input 样式
+@import '@douyinfe/semi-foundation/input/input.scss';
+
+// 导入 foundation 的 textarea 样式
+@import '@douyinfe/semi-foundation/input/textarea.scss';
+
+// Vue 版本特定修复：InputGroup 中 Select 组件的圆角和分割线问题
+// 由于 Vue 版本的 Select 组件被 Popover/Tooltip 包装，需要更具体的选择器
+// Tooltip 使用 display: contents，所以不会影响 DOM 结构，但需要确保样式优先级足够高
+.#{$prefix}-input-group {
+    // 修复 Select 组件在 InputGroup 中的圆角问题
+    // 确保第一个 Select 组件左侧有圆角，右侧没有圆角
+    // 使用 :first-child 选择器匹配第一个子元素（包括 Tooltip wrapper）
+    > *:first-child .#{$prefix}-select,
+    > .#{$prefix}-select:first-child {
+        border-radius: $radius-input_wrapper 0 0 $radius-input_wrapper !important;
+    }
+
+    // 确保最后一个 Select 组件右侧有圆角，左侧没有圆角
+    > *:last-child .#{$prefix}-select,
+    > .#{$prefix}-select:last-child {
+        border-radius: 0 $radius-input_wrapper $radius-input_wrapper 0 !important;
+    }
+
+    // 确保中间的 Select 组件没有圆角
+    > *:not(:first-child):not(:last-child) .#{$prefix}-select,
+    > .#{$prefix}-select:not(:first-child):not(:last-child) {
+        border-radius: 0 !important;
+    }
+
+    // 修复 Select 组件和右侧组件之间的分割线
+    // 确保不是最后一个的 Select 组件有分割线
+    > *:not(:last-child) .#{$prefix}-select,
+    > .#{$prefix}-select:not(:last-child) {
+        position: relative !important;
+
+        &::after {
+            content: '' !important;
+            background-color: $color-input_group-border-default !important;
+            width: $width-input_group_pseudo-border !important;
+            position: absolute !important;
+            right: -1px !important;
+            top: 1px !important;
+            bottom: 1px !important;
+            z-index: 1 !important;
+        }
+    }
+}
+.#{$prefix}-input-wrapper__with-suffix {
+    margin-top: -1px !important;
+}
+
+// 修复 showClear 后输入框宽度被扩展的问题
+// 将清空按钮改为绝对定位，避免占据空间
+.#{$prefix}-input-wrapper-clearable {
+    position: relative;
+
+    // 清空按钮使用绝对定位，不占据布局空间
+    .#{$prefix}-input-clearbtn {
+        position: absolute !important;
+        right: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: $width-input-icon;
+    }
+
+    // 当有清空按钮时，调整输入框的 padding-right，为清空按钮留出空间
+    .#{$prefix}-input-sibling-clearbtn {
+        padding-right: $width-input-icon !important;
+    }
+
+    // 当有 suffix 时，清空按钮应该位于 suffix 之前
+    // suffix 本身是 flex 布局的一部分，清空按钮需要定位在 suffix 之前
+    &.#{$prefix}-input-wrapper__with-suffix:not(.#{$prefix}-input-wrapper__with-suffix-hidden) {
+        .#{$prefix}-input-clearbtn {
+            // suffix 的宽度通常是动态的，这里使用一个合理的默认值
+            // 实际位置会根据 suffix 的实际宽度自动调整
+            right: auto;
+            left: calc(100% - #{$width-input-icon});
+        }
+    }
+
+    // 当有 modebtn 时，清空按钮应该位于 modebtn 之前
+    &.#{$prefix}-input-wrapper-modebtn {
+        .#{$prefix}-input-clearbtn {
+            right: $width-input-icon;
+        }
+
+        .#{$prefix}-input-sibling-clearbtn {
+            padding-right: $width-input-icon * 2 !important;
+        }
+    }
+
+    // 当同时有 suffix 和 modebtn 时
+    &.#{$prefix}-input-wrapper__with-suffix.#{$prefix}-input-wrapper-modebtn:not(
+            .#{$prefix}-input-wrapper__with-suffix-hidden
+        ) {
+        .#{$prefix}-input-clearbtn {
+            right: $width-input-icon;
+        }
+    }
+}

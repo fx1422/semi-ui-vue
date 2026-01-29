@@ -1,0 +1,72 @@
+# 开发文件
+example/
+__test__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+test/
+tests/
+vitest.config.ts
+
+# 开发配置
+vite.config.dev.ts
+vite.config.ts
+vite.config.dist.ts
+tsconfig.json
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# 构建工具
+node_modules/
+.pnpm-store/
+.yarn/
+.npm/
+
+# 开发依赖和脚本
+scripts/
+docs/
+*.md
+!README.md
+
+# 源代码（只发布构建产物）
+src/
+!src/**/*.d.ts
+
+# 临时文件和缓存
+*.log
+*.tmp
+.DS_Store
+.cache/
+.temp/
+coverage/
+.nyc_output/
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# 其他
+.env
+.env.local
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# 排除被打包进来的依赖源码
+lib/es/semi-foundation/
+lib/cjs/semi-foundation/
+lib/es/semi-ui-vue/
+lib/cjs/semi-ui-vue/
+
+# 排除 source map 文件（可选，如果需要调试可以保留）
+# *.map
