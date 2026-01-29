@@ -11,7 +11,7 @@
         @mousedown="handleMouseDown"
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
-    >11111
+    >
         <span :class="contentClasses" :x-semi-prop="xSemiProp" @click="handleContentClick">
             <template v-if="iconPosition === 'left' && (icon || (loading && !hasIconButtonClass))">
                 <component
